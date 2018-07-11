@@ -604,6 +604,7 @@ interface btContactSolverInfo {
 interface btDynamicsWorld {
   void addAction(btActionInterface action);
   void removeAction(btActionInterface action);
+  void setInternalTickCallbackPtr(long cbPtr, VoidPtr worldUserInfo, boolean isPreTick);
   [Ref] btContactSolverInfo getSolverInfo();
 };
 btDynamicsWorld implements btCollisionWorld;

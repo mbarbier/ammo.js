@@ -119,6 +119,13 @@ public:
 			m_worldUserInfo = worldUserInfo;
 		}
 
+		// XXX AMMO local addition to bullet
+		void setInternalTickCallbackPtr(unsigned long cb, void* worldUserInfo=0,bool isPreTick=false) {
+			btInternalTickCallback cbcast = (btInternalTickCallback) cb;
+			setInternalTickCallback(cbcast, worldUserInfo, isPreTick);
+			// gContactAddedCallback = (ContactAddedCallback)callbackFunction;
+		}
+
 		void	setWorldUserInfo(void* worldUserInfo)
 		{
 			m_worldUserInfo = worldUserInfo;
