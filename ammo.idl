@@ -157,6 +157,7 @@ interface btManifoldPoint {
   [Value] attribute btVector3 m_positionWorldOnB;
   [Value] attribute btVector3 m_positionWorldOnA;
   [Value] attribute btVector3 m_normalWorldOnB;
+  attribute VoidPtr m_userPersistentData;
 };
 
 [Prefix="btCollisionWorld::"]
@@ -605,6 +606,9 @@ interface btDynamicsWorld {
   void addAction(btActionInterface action);
   void removeAction(btActionInterface action);
   void setInternalTickCallbackPtr(long cbPtr, VoidPtr worldUserInfo, boolean isPreTick);
+  void setContactAddedCallback(long funcpointer);
+  void setContactProcessedCallback(long funcpointer);
+  void setContactDestroyedCallback(long funcpointer);
   [Ref] btContactSolverInfo getSolverInfo();
 };
 btDynamicsWorld implements btCollisionWorld;

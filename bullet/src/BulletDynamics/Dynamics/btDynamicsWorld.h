@@ -123,7 +123,18 @@ public:
 		void setInternalTickCallbackPtr(unsigned long cb, void* worldUserInfo=0,bool isPreTick=false) {
 			btInternalTickCallback cbcast = (btInternalTickCallback) cb;
 			setInternalTickCallback(cbcast, worldUserInfo, isPreTick);
-			// gContactAddedCallback = (ContactAddedCallback)callbackFunction;
+		}
+		// XXX AMMO local addition to bullet
+		void setContactAddedCallback(unsigned long callbackFunction) {
+			gContactAddedCallback = (ContactAddedCallback)callbackFunction;
+		}
+		// XXX AMMO local addition to bullet
+		void setContactProcessedCallback(unsigned long callbackFunction) {
+			gContactProcessedCallback = (ContactProcessedCallback)callbackFunction;
+		}
+		// XXX AMMO local addition to bullet
+		void setContactDestroyedCallback(unsigned long callbackFunction) {
+			gContactDestroyedCallback = (ContactDestroyedCallback)callbackFunction;
 		}
 
 		void	setWorldUserInfo(void* worldUserInfo)
